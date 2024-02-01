@@ -544,8 +544,7 @@ times(3, 4);
       a family of transformations <LATEXINLINE>$T_{pq}$</LATEXINLINE>, where
       <LATEXINLINE>$T_{pq}$</LATEXINLINE> transforms the pair
       <LATEXINLINE>$(a,b)$</LATEXINLINE> according to
-      <LATEXINLINE>$a\leftarrow bq+aq+ap$</LATEXINLINE> and
-      <LATEXINLINE>$b\leftarrow bp+aq$</LATEXINLINE>.  Show that if we apply such
+      <LATEXINLINE>$a\leftarrow bq+aq+ap$</LATEXINLINE> and <LATEXINLINE>$b\leftarrow bp+aq$</LATEXINLINE>.  Show that if we apply such
       a transformation <LATEXINLINE>$T_{pq}$</LATEXINLINE> twice, the effect is
       the same as using a single transformation
       <LATEXINLINE>$T_{p'q'}$</LATEXINLINE> of the same form, and compute
@@ -623,6 +622,37 @@ function fib_iter(a, b, p, q, count) {
 	</JAVASCRIPT>
       </SNIPPET>
       <SOLUTION>        
+	<SPLIT>
+      	As stated, the first transformation <LATEXINLINE>$T_{pq}$</LATEXINLINE>
+	will transform the the pair <LATEXINLINE>$(a,b)$</LATEXINLINE> into
+	<LATEXINLINE>$bq+aq+ap$</LATEXINLINE> and 
+	<LATEXINLINE>$bp+aq$</LATEXINLINE> respectively.
+	now, let's apply the transformation again 
+	<LATEXINLINE>$T_{p'q'}$</LATEXINLINE>, which has the form 
+	<LATEXINLINE>$a''\leftarrow b'q+a'q+a'p$</LATEXINLINE> and
+	<LATEXINLINE>$b''\leftarrow b'p+a'q$</LATEXINLINE>, 
+	where <LATEXINLINE>$a' = bq+aq+ap$</LATEXINLINE> and
+	<LATEXINLINE>$b' = bp+aq$</LATEXINLINE>:
+	<LATEX>
+	 a'\leftarrow (bp+aq)q+(bq+aq+ap)q+(aq+bq+ap)p
+	 a'\leftarrow bpq+aq^2+bpq+aq^2+apq+apq+bpq+ap^2
+	</LATEX>
+	Now, with some substitution we get:
+	<LATEX>
+	 a'\leftarrow b(2pq+q^2)+a(2pq+q^2)+a(p^2+q^2)
+	</LATEX>
+	Just as a sanity check, let's do
+	<LATEX>
+	 b'\leftarrow (bp+aq)p+(aq+bq+ap)q
+	 b'\leftarrow bp^2+apq+aq^2+bq^2+apq
+	</LATEX>
+	And, with some substitution again, we get:
+	<LATEX>
+	 b'\leftarrow b(p^2+q^2)+a(2pq+q^2)
+	</LATEX>
+	And it's clear that <LATEXINLINE>$p'=q^2+p^2$</LATEXINLINE> and
+	<LATEXINLINE>$q'=2pq+q^2$</LATEXINLINE>.
+	</SPLIT>
 	<SNIPPET>
 	  <NAME>fib_log_solution</NAME>
 	  <EXAMPLE>example_1.20</EXAMPLE>
